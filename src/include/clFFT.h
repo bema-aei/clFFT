@@ -247,7 +247,11 @@ extern "C" {
 	 *  @details Called when client is done with the FFT library, allowing the library to destroy all resources it has cached
 	 *  @return Enum describing error condition; superset of OpenCL error codes
 	 */
+#ifdef __cplusplus
 	CLFFTAPI clfftStatus	clfftTeardown( );
+#else
+	CLFFTAPI clfftStatus	clfftTeardown( void );
+#endif
 
 	/*! @brief Query the FFT library for version information
 	 *  @details Returns the major, minor and patch version numbers associated with the FFT library
